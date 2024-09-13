@@ -69,6 +69,8 @@ RUN if [ "$MODEL_TYPE" = "sdxl" ]; then \
       wget --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/vae/ae.safetensors https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors; \
     fi
 
+RUN wget -O models/loras/flux_realism_lora.safetensors https://huggingface.co/comfyanonymous/flux_RealismLora_converted_comfyui/resolve/main/flux_realism_lora.safetensors
+
 # Stage 3: Final image
 FROM base as final
 
